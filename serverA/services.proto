@@ -1,0 +1,32 @@
+syntax ="proto3";
+package ss;
+
+message payloadData{
+    string payload=1;
+}
+
+message imageData{
+
+    string imageData=1;
+
+}
+
+message validation{
+    bool valid=1;
+}
+message ok{
+    string ok =1;
+}
+
+service serviceA {
+    rpc verify_payload(payloadData) returns (ok);
+}
+
+service serviceB{
+    rpc verify_image(imageData) returns (ok);
+
+}
+
+service serviceC{
+    rpc verify_validation(validation) returns(ok);
+}
